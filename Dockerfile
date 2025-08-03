@@ -8,8 +8,9 @@ RUN dpkg --add-architecture i386 && \
     apt-get clean autoclean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
-
-RUN useradd -m -d /home/sysuser -s /bin/bash -u 1000 -g 1000 sysuser
+    
+RUN groupadd -g 1000 sysuser \
+ && useradd -m -d /home/sysuser -s /bin/bash -u 1000 -g 1000 sysuser
 
 ENV PATH="$PATH:/usr/games"
 
