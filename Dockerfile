@@ -11,10 +11,12 @@ RUN dpkg --add-architecture i386 && \
     
 RUN groupadd -g 1000 sysuser \
  && useradd -m -d /home/sysuser -s /bin/bash -u 1000 -g 1000 sysuser
+RUN mkdir -p /home/sysuser/steamcmd && \
+    chown 1000:1000 -R /home/sysuser
+
+WORKDIR /home/sysuser/steamcmd
 
 ENV PATH="$PATH:/usr/games"
-
-WORKDIR /steamcmd
 
 COPY ./entrypoint.sh /entrypoint.sh
 
