@@ -17,4 +17,6 @@ WORKDIR /steamcmd
 
 COPY --chown 1000:1000 ./entrypoint.sh /entrypoint.sh
 
+USER sysuser
+
 ENTRYPOINT ["bash", "/entrypoint.sh"]
