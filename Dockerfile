@@ -15,7 +15,7 @@ ENV PATH="$PATH:/usr/games"
 
 WORKDIR /steamcmd
 
-COPY --chown=sysuser:sysuser ./entrypoint.sh /entrypoint.sh
+COPY ./entrypoint.sh /entrypoint.sh
 
 USER sysuser
 
