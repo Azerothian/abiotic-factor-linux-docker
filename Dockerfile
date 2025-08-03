@@ -9,7 +9,7 @@ RUN dpkg --add-architecture i386 && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
-RUN RUN useradd -m -d /home/sysuser -s /bin/bash -u 1000 -g 1000 sysuser
+RUN useradd -m -d /home/sysuser -s /bin/bash -u 1000 -g 1000 sysuser
 
 ENV PATH="$PATH:/usr/games"
 
