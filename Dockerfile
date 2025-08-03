@@ -9,9 +9,12 @@ RUN dpkg --add-architecture i386 && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
+RUN RUN useradd -m -d /data -s /bin/bash -u 1000 -g 1000 sysuser
+
 ENV PATH="$PATH:/usr/games"
 
 WORKDIR /steamcmd
 
-COPY ./entrypoint.sh /entrypoint.sh
+COPY --chown 1000:1000 ./entrypoint.sh /entrypoint.sh
+
 ENTRYPOINT ["bash", "/entrypoint.sh"]
