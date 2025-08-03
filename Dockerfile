@@ -20,6 +20,6 @@ ENV PATH="$PATH:/usr/games"
 
 COPY ./entrypoint.sh /entrypoint.sh
 
-USER sysuser
+USER 1000
 
 ENTRYPOINT ["bash", "/entrypoint.sh"]
